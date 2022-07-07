@@ -8,9 +8,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div class="row">
+    <div class="col-md-12">
+      <% flash.each do |key, msg| %>
+        <div class="text-center alert alert-<%= key == 'notice' ? 'success' : 'danger' %>">
+          <%= msg %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <body>
     <%= link_to "Home", root_path %>
     <%= link_to "Athletes Den", root_path %>
+    <%= link_to "signup", new_user_registration_path %>
     <%= yield %>
   </body>
 </html>
