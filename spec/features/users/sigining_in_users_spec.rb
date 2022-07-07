@@ -7,7 +7,7 @@ RSpec.describe "User Sign In" do
 
   scenario 'with valid credentials' do
     visit '/'
-    click_link "Sign in"
+    click_link "Sign In"
     fill_in "Email", with: @john.email
     fill_in "Password", with: @john.password
     click_button "Log In"
