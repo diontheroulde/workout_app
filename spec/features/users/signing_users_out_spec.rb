@@ -8,12 +8,12 @@ RSpec.describe "User Sign Out" do
     click_link "Sign In"
     fill_in "Email", with: @john.email
     fill_in "Password",  with: @john.password
-    click_button "Log In"
+    click_button "Log in"
   end
 
   scenario do
     visit "/"
-    click_link "Sign out"
+    click_link "Sign Out"
     expect(page).to have_content("Signed out successfully.")
   end
 end

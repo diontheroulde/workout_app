@@ -21,13 +21,14 @@
   <body>
     <%= link_to "Home", root_path %>
     <%= link_to "Athletes Den", root_path %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-    <%= link_to "Sign In", new_user_session_path %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <% if user_signed_in? %>
-      <p>
-        Signed in as <%= "#{current_user.email}" %>
-      </p>
+    <% unless user_signed_in?%>
+      <%= link_to "Sign Up", new_user_registration_path %>
+      <%= link_to "Sign In", new_user_session_path %>
+    <% else %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+        <p>
+          Signed in as <%= "#{current_user.email}" %>
+        </p>
     <% end %>
     <%= yield %>
   </body>
